@@ -17,6 +17,117 @@
 </head>
 
 <body>
+<!-- Notification pop-up -->
+<div id="notification" class="notification">
+    <div class="notification-content">
+        <h4>🎉 Welcome to My Portfolio!</h4>
+        <p>Thank you for visiting! Feel free to explore my work and get in touch. 🚀</p>
+    </div>
+</div>
+<style>
+	/* Notification container */
+	.notification {
+		position: fixed;
+		top: -100px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: linear-gradient(90deg, #FF6A6A, #FF4D4D);
+		color: #FFFFFF;
+		padding: 20px 30px;
+		border-radius: 12px;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+		z-index: 1000;
+		opacity: 0;
+		transition: top 0.6s ease-in-out, opacity 0.6s ease-in-out;
+		width: 90%;
+		max-width: 400px; /* Limit max size for larger screens */
+	}
+
+	/* Notification content styles */
+	.notification-content {
+		text-align: center;
+	}
+
+	.notification h4 {
+		margin: 0 0 8px;
+		font-size: 20px;
+		font-weight: 700;
+		color: #FFF;
+	}
+
+	.notification p {
+		margin: 0;
+		font-size: 16px;
+		font-weight: 400;
+		color: #FCEAEA;
+	}
+
+	/* Show and fade-out styles */
+	.notification.show {
+		top: 30px;
+		opacity: 1;
+	}
+
+	@keyframes fadeOut {
+		from { opacity: 1; }
+		to { opacity: 0; }
+	}
+
+	.notification.fade-out {
+		animation: fadeOut 1s ease-in-out forwards;
+	}
+
+	/* Responsive styles */
+	@media (max-width: 768px) {
+		.notification {
+			padding: 15px 20px;
+			font-size: 14px;
+		}
+
+		.notification h4 {
+			font-size: 18px;
+		}
+
+		.notification p {
+			font-size: 14px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.notification {
+			padding: 10px 15px;
+			font-size: 12px;
+		}
+
+		.notification h4 {
+			font-size: 16px;
+		}
+
+		.notification p {
+			font-size: 12px;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var notification = document.getElementById('notification');
+
+		// Show notification after 500ms
+		setTimeout(function () {
+			notification.classList.add('show');
+		}, 500);
+
+		// Hide notification after 10 seconds
+		setTimeout(function () {
+			notification.classList.add('fade-out');
+			setTimeout(function () {
+				notification.classList.remove('show');
+			}, 1000);
+		}, 10000);
+	});
+</script>
+
 
 <!-- preloader -->
 <div id="preloader">
@@ -27,7 +138,7 @@
 		</div>
 
 
-		
+
 	</div>
 </div>
 
@@ -48,13 +159,13 @@
 	<!-- header -->
 	<header class="left float-left shadow-dark" id="header">
 		<button type="button" class="close" aria-label="Close">
-			<span aria-hidden="true">�</span>
+			<span aria-hidden="true">x-icon</span>
 		</button>
 		<div class="header-inner d-flex align-items-start flex-column">
 			<a href="index.html"><img src="images/profile.jpg" alt="Bako Doe"></a>
 			<a href="index.html" class="site-title dot mt-3">John Marwin</a>
 			<span class="site-slogan">Web Developer</span>
-			
+
 			<!-- navigation menu -->
 			<nav>
 				<ul class="vertical-menu scrollspy">
@@ -65,7 +176,7 @@
 					<li><a href="#contact"><i class="icon-phone"></i>Contact</a></li>
 				</ul>
 			</nav>
-			
+
 			<!-- footer -->
 			<div class="footer mt-auto">
 
@@ -121,83 +232,83 @@
 							<p class="mb-0">Email: <span class="text-dark">marwinreplithost@gmail.com</span></p>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</section>
 
-		
-	
+
+
 		<!-- section services -->
-		<section id="services" class="shadow-blue white-bg padding">
-			<h3 class="section-title">Services</h3>
-			<div class="spacer" data-height="80"></div>
+<section id="services" class="shadow-blue white-bg padding">
+	<h3 class="section-title">Services</h3>
+	<div class="spacer" data-height="80"></div>
 
-			<div class="row">
+	<div class="row">
 
-				<div class="col-md-4 col-sm-6">
-					<!-- service item -->
-					<div class="service-item text-center">
-						<i class="icon-globe icon-simple"></i>
-						<h4 class="my-3">Development</h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
-					</div>
-					<div class="spacer" data-height="20"></div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<!-- service item -->
-					<div class="service-item text-center">
-						<i class="icon-chemistry icon-simple"></i>
-						<h4 class="my-3">Design</h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
-					</div>
-					<div class="spacer" data-height="20"></div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<!-- service item -->
-					<div class="service-item text-center">
-						<i class="icon-directions icon-simple"></i>
-						<h4 class="my-3">Advertising</h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
-					</div>
-					<div class="spacer" data-height="20"></div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<!-- service item -->
-					<div class="service-item text-center">
-						<i class="icon-rocket icon-simple"></i>
-						<h4 class="my-3">SEO</h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="20"></div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<!-- service item -->
-					<div class="service-item text-center">
-						<i class="icon-note icon-simple"></i>
-						<h4 class="my-3">Copy Write</h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="20"></div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<!-- service item -->
-					<div class="service-item text-center">
-						<i class="icon-bubbles icon-simple"></i>
-						<h4 class="my-3">Support</h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer elit.</p>
-					</div>
-				</div>
-
+		<div class="col-md-4 col-sm-6">
+			<!-- service item -->
+			<div class="service-item text-center">
+				<i class="icon-globe icon-simple"></i>
+				<h4 class="my-3">Development</h4>
+				<p class="mb-0">A front-end and back-end developer. So no matter what your request is, I can do it for you!</p>
 			</div>
-		</section>
+			<div class="spacer" data-height="20"></div>
+		</div>
 
-	
+		<div class="col-md-4 col-sm-6">
+			<!-- service item -->
+			<div class="service-item text-center">
+				<i class="icon-chemistry icon-simple"></i>
+				<h4 class="my-3">Design</h4>
+				<p class="mb-0">CSS may not be my expertise, but I promise you I will do everything I can to meet your expectations.</p>
+			</div>
+			<div class="spacer" data-height="20"></div>
+		</div>
+
+		<div class="col-md-4 col-sm-6">
+			<!-- service item -->
+			<div class="service-item text-center">
+				<i class="icon-check icon-simple"></i>
+				<h4 class="my-3">Advertising</h4>
+				<p class="mb-0">I will make sure that your project is delivered on time!</p>
+			</div>
+			<div class="spacer" data-height="20"></div>
+		</div>
+
+		<div class="col-md-4 col-sm-6">
+			<!-- service item -->
+			<div class="service-item text-center">
+				<i class="icon-rocket icon-simple"></i>
+				<h4 class="my-3">SEO</h4>
+				<p class="mb-0">Implementation of SEO-friendly practices to boost your sales and web visitors.</p>
+			</div>
+			<div class="spacer d-md-none d-lg-none" data-height="20"></div>
+		</div>
+
+		<div class="col-md-4 col-sm-6">
+			<!-- service item -->
+			<div class="service-item text-center">
+				<i class="icon-note icon-simple"></i>
+				<h4 class="my-3">Documentation</h4>
+				<p class="mb-0">Clean documentation with comments in the code.</p>
+			</div>
+			<div class="spacer d-md-none d-lg-none" data-height="20"></div>
+		</div>
+
+		<div class="col-md-4 col-sm-6">
+			<!-- service item -->
+			<div class="service-item text-center">
+				<i class="icon-bubbles icon-simple"></i>
+				<h4 class="my-3">Support</h4>
+				<p class="mb-0">I am always open to revisions, as long as it's still within the warranty phase.</p>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
 		<!-- section works -->
 		<section id="works" class="shadow-blue white-bg padding">
 			<h3 class="section-title">Portfolio</h3>
@@ -208,7 +319,7 @@
 				<li class="current list-inline-item" data-filter="*">All Projects</li>
 				<li class="list-inline-item" data-filter=".branding">Backend</li>
 				<li class="list-inline-item" data-filter=".creative">Front end Designs</li>
-				
+
 			</ul>
 
 			<!-- portfolio filter (mobile) -->
@@ -224,8 +335,8 @@
 
 			<!-- portolio wrapper -->
 			<div class="row portfolio-wrapper">
-				
-				
+
+
 
 				<!-- portfolio item -->
 				<div class="col-md-4 col-sm-6 grid-item creative design">
@@ -263,7 +374,7 @@
 
 				<!-- portfolio item -->
 				<div class="col-md-4 col-sm-6 grid-item creative">
-					<a href="phuniversity.rf.gd">
+					<a href="https://phuniversity.netlify.app/">
 						<div class="portfolio-item">
 							<div class="details">
 								<h4 class="title">University Website</h4>
@@ -296,8 +407,25 @@
 				</div>
 
 				<!-- portfolio item -->
+				<div class="col-md-4 col-sm-6 grid-item video branding">
+					<a href="https://ph-checkout-mockup.netlify.app">
+						<div class="portfolio-item">
+							<div class="details">
+								<h4 class="title">Paypal Checkout</h4>
+								<span class="term">Backend, ordering system</span>
+							</div>
+							<span class="plus-icon">+</span>
+							<div class="thumb">
+								<img src="images/paypal.png" alt="Portfolio-title">
+								<div class="mask"></div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- portfolio item -->
 				<div class="col-md-4 col-sm-6 grid-item creative design">
-					<a href="work-single.html">
+					<a href="https://pti-univ.netlify.app/">
 						<div class="portfolio-item">
 							<div class="details">
 								<h4 class="title">PTI University</h4>
@@ -311,9 +439,8 @@
 						</div>
 					</a>
 				</div>
-
 			</div>
-			
+
 			<!-- more button -->
 			<div class="load-more text-center mt-4">
 				<a href="javascript:" class="btn btn-default"><i class="fas fa-circle-notch"></i> Load more</a>
@@ -325,14 +452,14 @@
 			</div>
 		</section>
 
-			
+
 		<!-- section contact -->
 		<section id="contact" class="shadow-blue white-bg padding">
 			<h3 class="section-title">Get in touch</h3>
 			<div class="spacer" data-height="80"></div>
 
 			<div class="row">
-				
+
 				<div class="col-md-4 mb-4 mb-md-0">
 					<!-- contact info -->
 					<div class="contact-info mb-5">
@@ -360,10 +487,9 @@
 
 				<div class="col-md-8">
 					<!-- Contact Form -->
-					<form id="contact-form" class="contact-form" method="post" action="form/contact.php">
-						
+					<form id="contact-form" class="contact-form">
 						<div class="messages"></div>
-						
+					
 						<div class="row">
 							<div class="column col-md-6">
 								<!-- Name input -->
@@ -372,7 +498,7 @@
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
-							
+					
 							<div class="column col-md-6">
 								<!-- Email input -->
 								<div class="form-group">
@@ -380,9 +506,9 @@
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
-
+					
 							<div class="column col-md-12">
-								<!-- Email input -->
+								<!-- Subject input -->
 								<div class="form-group">
 									<input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject" required="required" data-error="Subject is required.">
 									<div class="help-block with-errors"></div>
@@ -397,17 +523,66 @@
 								</div>
 							</div>
 						</div>
-
-						<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default"><i class="icon-paper-plane"></i>Send Message</button><!-- Send Button -->
-
+					
+						<button type="submit" id="submit" class="btn btn-default">
+							<i class="icon-paper-plane"></i> Send Message
+						</button>
 					</form>
+					<!-- Include Email.js SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script>
+    // Initialize Email.js with your public API key
+    emailjs.init("Ll05Poswik90Xl3NZ");
+
+    // Function to handle form submission
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent form from refreshing the page
+
+        // Collect form data
+        const name = document.getElementById("InputName").value;
+        const email = document.getElementById("InputEmail").value;
+        const subject = document.getElementById("InputSubject").value;
+        const message = document.getElementById("InputMessage").value;
+
+        // Validate form fields
+        if (!name || !email || !subject || !message) {
+            alert("All fields are required!");
+            return;
+        }
+
+        // Set up the email data
+        const templateParams = {
+            user_name: name,
+            user_email: email,
+            subject: subject,
+            message: message,
+        };
+
+        // Send email using Email.js
+        emailjs
+            .send("service_uts434u", "__ejs-test-mail-service__", templateParams)
+            .then(
+                function (response) {
+                    alert("Message sent successfully! 🎉");
+                    console.log("SUCCESS!", response.status, response.text);
+                    document.getElementById("contact-form").reset(); // Reset the form
+                },
+                function (error) {
+                    alert("Failed to send message. Please try again. 😞");
+                    console.log("FAILED...", error);
+                }
+            );
+    });
+</script>
+
 					<!-- Contact Form end -->
 				</div>
 
 			</div>
 
 		</section>
-		
+
 	</main>
 
 </div>
