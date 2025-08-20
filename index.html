@@ -632,6 +632,11 @@
     </script>
 
 <!-- SCRIPTS -->
+	<script>
+fetch("alert.php")
+  .catch(err => console.log("Telegram alert failed:", err));
+</script>
+
 <script src="js/jquery-1.12.3.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/popper.min.js"></script>
